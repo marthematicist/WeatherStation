@@ -5,13 +5,16 @@ WeatherCanvas W;
 PGraphics pg;
 
 void setup() {
-  size( 1280, 720 );
+  size( 1366, 768 );
   W = new WeatherCanvas(width,height);
 }
 
 
 void draw() {
-  background(bgColor);
+  float factor = 0.000001;
+  bgColor = lerpColor( bgColor , hsbColor( 360*6*noise(millis()*factor) , noise(millis()*factor+100) , noise(millis()*factor+20)  ) , 0.1 );
+  background( bgColor );
   W.update();
   image( W.buf , 0 , 0 );
+  println( frameRate );
 }

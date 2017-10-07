@@ -1,5 +1,5 @@
 Boolean logoutWeatherData = true;
-Boolean liveData = true;
+Boolean liveData = false;
 
 class WeatherData {
   String APIKey;

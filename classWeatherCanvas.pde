@@ -72,7 +72,7 @@ class WeatherCanvas {
         drawDayForecast( i, x, 0.8*height, w, 0.3*height, drawColorShadow, iconsSmallShadow );
       }
       drawCurrentConditions( 0.18*width, 0.2*height, 0.15*width, 0.3*height, drawColorShadow, iconsLargeShadow );
-      buf.filter(BLUR, 0.003*width );
+      buf.filter(BLUR, 0.002*width );
       for ( int i = 1; i<7; i++ ) {
         float x = (i)*w;
         drawDayForecast( i, x, 0.8*height, w, 0.3*height, drawColor, iconsSmall );
