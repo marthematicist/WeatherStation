@@ -70,12 +70,12 @@ class WeatherData {
     if( liveData ) {
       try {
         weatherJSON = loadJSONObject( weatherURL );
-        saveJSONObject( weatherJSON ,  "/weatherHistory/mostRecentWeather.json" );
+        saveJSONObject( weatherJSON ,  "mostRecentWeather.json" );
       } catch( Exception e ) {
-        weatherJSON = loadJSONObject( "/weatherHistory/mostRecentWeather.json" );
+        weatherJSON = loadJSONObject( "mostRecentWeather.json" );
       }
     } else {
-      weatherJSON = loadJSONObject(  "/weatherHistory/mostRecentWeather.json" );
+      weatherJSON = loadJSONObject(  "mostRecentWeather.json" );
     }
   }
   
