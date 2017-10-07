@@ -33,18 +33,7 @@ class WeatherData {
     }
     // get and set weather data
     FetchWeather();
-    weatherDate = Calendar.getInstance();
-    weatherDate.setTimeInMillis((long)weatherJSON.getJSONObject("currently").getInt("time")*1000);
-    // get current conditions
-    current = new HourConditions( weatherJSON.getJSONObject("currently") );
-    // get week forecast
-    weekForecast = new DayConditions[7];
-    for( int i = 0 ; i < 7 ; i++ ) {
-      weekForecast[i] = new DayConditions( weatherJSON.getJSONObject("daily").getJSONArray("data").getJSONObject(i) );
-    }
-    if( logoutWeatherData ) {
-      logout();
-    }
+    
   }
   
   void logout() {
@@ -76,6 +65,18 @@ class WeatherData {
       }
     } else {
       weatherJSON = loadJSONObject(  "mostRecentWeather.json" );
+    }
+    weatherDate = Calendar.getInstance();
+    weatherDate.setTimeInMillis((long)weatherJSON.getJSONObject("currently").getInt("time")*1000);
+    // get current conditions
+    current = new HourConditions( weatherJSON.getJSONObject("currently") );
+    // get week forecast
+    weekForecast = new DayConditions[7];
+    for( int i = 0 ; i < 7 ; i++ ) {
+      weekForecast[i] = new DayConditions( weatherJSON.getJSONObject("daily").getJSONArray("data").getJSONObject(i) );
+    }
+    if( logoutWeatherData ) {
+      logout();
     }
   }
   

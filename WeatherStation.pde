@@ -16,5 +16,7 @@ void draw() {
   background( bgColor );
   W.update();
   image( W.buf , 0 , 0 );
-  println( frameRate );
+  if( frameCount%100 == 0) {
+    println( frameRate );
+  }
 }
